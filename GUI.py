@@ -9,7 +9,7 @@ import os
 def buon_ngu():
     filename = 'robotic_vison.py'
     os.system(filename)
-    os.system('robotic'+filename)
+
     
  
     
@@ -51,10 +51,10 @@ btn = Button(root,text = "START",font =("times new roman",20),bg ="#326fa8",bd =
 btn.place (x = 450,y = 400)
 btn = Button(root,text = "STOP",font =("times new roman",20),bg ="RED",bd =10 ,fg ="white",command =exit)
 btn.place (x = 300,y = 400)
-ten0 =Label(root ,text ="SVTH:",font=("time new roman",15),fg = "#0a064f")  
-ten0.place(x =630,y =390)
-ten = Label(root ,text ="Vũ Hữu Bắc",font=("time new roman",15),fg = "#0a064f")
-ten.place(x =700,y =390)
+# ten0 =Label(root ,text ="SVTH:",font=("time new roman",15),fg = "#0a064f")  
+# ten0.place(x =630,y =390)
+# ten = Label(root ,text ="Vũ Hữu Bắc",font=("time new roman",15),fg = "#0a064f")
+# ten.place(x =700,y =390)
 # ten1 = Label(root ,text ="Vũ Hữu Huy",font=("time new roman",15),fg = "#0a064f") 
 # ten1.place(x =700,y =420)
 # ten2 = Label(root ,text ="Vũ Thạch Quang Anh",font=("time new roman",15),fg = "#0a064f")  

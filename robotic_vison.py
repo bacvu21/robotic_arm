@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from util import get_spots_boxes,empty_or_not
 import matplotlib.pyplot as plt
-import serial
+# import serial
 
 
 
@@ -20,9 +20,9 @@ def calc_diff(img1,img2):
 #                                                     #
 #######################################################
 
-ser = serial.Serial('COM13', 9600,timeout=1)
+#ser = serial.Serial('COM13', 9600,timeout=1)
 
-mask = 'mask_test.png'
+mask = 'mask4.png'
 cap = cv2.VideoCapture(0)
 
 # cap.set(3, 1280) # Width
@@ -96,36 +96,36 @@ while ret :
            
         else:
             frame =cv2.rectangle(frame,(x1,y1),(x1+w,y1+h),(0,0,255),2)
-            if spots[spot_indx]==spots[0]:
-                      frame =cv2.putText(frame, "Vi tri 1", (13,152), cv2.FONT_HERSHEY_SIMPLEX,1,
-                                 (0, 0, 255),2, cv2.LINE_AA, True)
-                      char_data = chr(97)  # 97 is ASCII code of 'a'
-                      ser.write(char_data.encode()) 
-            elif spots[spot_indx]==spots[1]:
-                      frame =cv2.putText(frame, "Vi tri 2", (207,152), cv2.FONT_HERSHEY_SIMPLEX,1,
-                                 (0, 0, 255),2, cv2.LINE_AA, True)
-                      char_data = chr(98)  # 97 is ASCII code of 'b'
-                      ser.write(char_data.encode()) 
-            elif spots[spot_indx]==spots[2]:
-                      frame =cv2.putText(frame, "Vi tri 3", (434,153), cv2.FONT_HERSHEY_SIMPLEX,1,
-                                 (0, 0, 255),2, cv2.LINE_AA, True)
-                      char_data = chr(99)  # 97 is ASCII code of 'c'
-                      ser.write(char_data.encode()) 
-            elif spots[spot_indx]==spots[3]:
-                      frame =cv2.putText(frame, "Vi tri 4", (13,170), cv2.FONT_HERSHEY_SIMPLEX,1,
-                                 (0, 0, 255),2, cv2.LINE_AA, True)
-                      char_data = chr(100)  # 97 is ASCII code of 'd'
-                      ser.write(char_data.encode()) 
-            elif spots[spot_indx]==spots[4]:
-                      frame =cv2.putText(frame, "Vi tri 5", (215,170), cv2.FONT_HERSHEY_SIMPLEX,1,
-                                 (0, 0, 255),2, cv2.LINE_AA, True)
-                      char_data = chr(101)  # 97 is ASCII code of 'e'
-                      ser.write(char_data.encode()) 
-            elif spots[spot_indx]==spots[5]:
-                      frame =cv2.putText(frame, "Vi tri 6", (433,171), cv2.FONT_HERSHEY_SIMPLEX,1,
-                                 (0, 0, 255),2, cv2.LINE_AA, True)
-                      char_data = chr(102)  # 97 is ASCII code of 'f'
-                      ser.write(char_data.encode()) 
+            # if spots[spot_indx]==spots[0]:
+            #           frame =cv2.putText(frame, "Vi tri 1", (13,152), cv2.FONT_HERSHEY_SIMPLEX,1,
+            #                      (0, 0, 255),2, cv2.LINE_AA, True)
+            #           char_data = chr(97)  # 97 is ASCII code of 'a'
+            #           ser.write(char_data.encode()) 
+            # elif spots[spot_indx]==spots[1]:
+            #           frame =cv2.putText(frame, "Vi tri 2", (207,152), cv2.FONT_HERSHEY_SIMPLEX,1,
+            #                      (0, 0, 255),2, cv2.LINE_AA, True)
+            #           char_data = chr(98)  # 97 is ASCII code of 'b'
+            #           ser.write(char_data.encode()) 
+            # elif spots[spot_indx]==spots[2]:
+            #           frame =cv2.putText(frame, "Vi tri 3", (434,153), cv2.FONT_HERSHEY_SIMPLEX,1,
+            #                      (0, 0, 255),2, cv2.LINE_AA, True)
+            #           char_data = chr(99)  # 97 is ASCII code of 'c'
+            #           ser.write(char_data.encode()) 
+            # elif spots[spot_indx]==spots[3]:
+            #           frame =cv2.putText(frame, "Vi tri 4", (13,170), cv2.FONT_HERSHEY_SIMPLEX,1,
+            #                      (0, 0, 255),2, cv2.LINE_AA, True)
+            #           char_data = chr(100)  # 97 is ASCII code of 'd'
+            #           ser.write(char_data.encode()) 
+            # elif spots[spot_indx]==spots[4]:
+            #           frame =cv2.putText(frame, "Vi tri 5", (215,170), cv2.FONT_HERSHEY_SIMPLEX,1,
+            #                      (0, 0, 255),2, cv2.LINE_AA, True)
+            #           char_data = chr(101)  # 97 is ASCII code of 'e'
+            #           ser.write(char_data.encode()) 
+            # elif spots[spot_indx]==spots[5]:
+            #           frame =cv2.putText(frame, "Vi tri 6", (433,171), cv2.FONT_HERSHEY_SIMPLEX,1,
+            #                      (0, 0, 255),2, cv2.LINE_AA, True)
+            #           char_data = chr(102)  # 97 is ASCII code of 'f'
+            #           ser.write(char_data.encode()) 
     
     
     cv2.rectangle(frame,(50,490),(400,400),(0,0,0),-1)
@@ -139,6 +139,6 @@ while ret :
 
 
 
-ser.close()
+#ser.close()
 cap.release()
 cv2.destroyAllWindows()

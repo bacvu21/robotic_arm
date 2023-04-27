@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score
 
 #chuanbi data
 
-input_dir = 'C:/Users/taikh/Desktop/robotic/data'
+input_dir = 'C:/Users/taikh/Desktop/test/data'
 categories =['empty','not_empty']
 
 
