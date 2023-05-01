@@ -45,7 +45,7 @@ label1 = tk.Label(image = logo)
 label1.image = logo
 label1.place(x=0, y=0) 
 
-
+1
 
 btn = Button(root,text = "START",font =("times new roman",20),bg ="#326fa8",bd =10 ,fg ="white",command =buon_ngu)
 btn.place (x = 450,y = 400)
