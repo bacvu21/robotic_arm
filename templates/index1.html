@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPIO Control and Video Streaming</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".button").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/gpio_video',
+                    data: $('form').serialize(),
+                    success: function(response){
+                        console.log(response);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>GPIO Control and Video Streaming</h1>
+    <form action="" method="post">
+        <h2>LED Control</h2>
+        <input type="radio" name="led" value="led1" id="led1"><label for="led1">LED 1</label><br>
+        <input type="radio" name="led" value="led2" id="led2"><label for="led2">LED 2</label><br>
+        <input type="radio" name="led" value="led3" id="led3"><label for="led3">LED 3</label><br>
+        <h3>State:</h3>
+        <input type="radio" name="state" value="on" id="on"><label for="on">On</label><br>
+        <input type="radio" name="state" value="off" id="off"><label for="off">Off</label><br>
+        <br>
+        <button type="button" class="button" id="submit">Submit</button>
+    </form>
+    <hr>
+    <h2>Video Streaming</h2>
+        <div>   
+            <img src ="{{url_for('video_feed')}}" width="50%" />
+        </div>
+</body>
+</html>

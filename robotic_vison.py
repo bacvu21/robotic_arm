@@ -2,21 +2,15 @@ import cv2
 import numpy as np
 from util import get_spots_boxes,empty_or_not
 import matplotlib.pyplot as plt
-# import serial
+#import serial
 import threading
 from flask import Flask, Response, render_template
+import time 
 
 
 app = Flask(__name__)
 
-def process_video(frame):
-    ret, buffer = cv2.imencode('.jpg', frame)
-    frame = buffer.tobytes()
 
-    # Yield the encoded frame as a byte string
-    yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-    
     
 def calc_diff(img1,img2):
     return np.abs(np.mean(img1)-np.mean(img2))
@@ -109,35 +103,59 @@ def process_():
             else:
                 frame =cv2.rectangle(frame,(x1,y1),(x1+w,y1+h),(0,0,255),2)
                 # if spots[spot_indx]==spots[0]:
-                #           frame =cv2.putText(frame, "Vi tri 1", (13,152), cv2.FONT_HERSHEY_SIMPLEX,1,
-                #                      (0, 0, 255),2, cv2.LINE_AA, True)
-                #           char_data = chr(97)  # 97 is ASCII code of 'a'
-                #           ser.write(char_data.encode()) 
+                #       frame =cv2.putText(frame, "Vi tri 2", (13,152), cv2.FONT_HERSHEY_SIMPLEX,1,
+                #                  (0, 0, 255),2, cv2.LINE_AA, True)
+
+                #       char_data = chr(98)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
+                #       time.sleep(0.2)
+
+                #       char_data = chr(103)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
                 # elif spots[spot_indx]==spots[1]:
-                #           frame =cv2.putText(frame, "Vi tri 2", (207,152), cv2.FONT_HERSHEY_SIMPLEX,1,
-                #                      (0, 0, 255),2, cv2.LINE_AA, True)
-                #           char_data = chr(98)  # 97 is ASCII code of 'b'
-                #           ser.write(char_data.encode()) 
+                #       frame =cv2.putText(frame, "Vi tri 3", (207,152), cv2.FONT_HERSHEY_SIMPLEX,1,
+                #                  (0, 0, 255),2, cv2.LINE_AA, True)
+                #       char_data = chr(99)  # 97 is ASCII code of 'b'
+                #       ser.write(char_data.encode())
+                #       time.sleep(0.2)
+
+                #       char_data = chr(103)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
                 # elif spots[spot_indx]==spots[2]:
-                #           frame =cv2.putText(frame, "Vi tri 3", (434,153), cv2.FONT_HERSHEY_SIMPLEX,1,
-                #                      (0, 0, 255),2, cv2.LINE_AA, True)
-                #           char_data = chr(99)  # 97 is ASCII code of 'c'
-                #           ser.write(char_data.encode()) 
+                #       frame =cv2.putText(frame, "Vi tri 5", (434,153), cv2.FONT_HERSHEY_SIMPLEX,1,
+                #                  (0, 0, 255),2, cv2.LINE_AA, True)
+                #       char_data = chr(101)  # 97 is ASCII code of 'c'
+                #       ser.write(char_data.encode())
+                #       time.sleep(0.2)
+
+                #       char_data = chr(103)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
                 # elif spots[spot_indx]==spots[3]:
-                #           frame =cv2.putText(frame, "Vi tri 4", (13,170), cv2.FONT_HERSHEY_SIMPLEX,1,
-                #                      (0, 0, 255),2, cv2.LINE_AA, True)
-                #           char_data = chr(100)  # 97 is ASCII code of 'd'
-                #           ser.write(char_data.encode()) 
+                #       frame =cv2.putText(frame, "Vi tri 1", (13,170), cv2.FONT_HERSHEY_SIMPLEX,1,
+                #                  (0, 0, 255),2, cv2.LINE_AA, True)
+                #       char_data = chr(97)#97 is ASCII code of 'd'
+                #       ser.write(char_data.encode())
+                #       time.sleep(0.2)
+
+                #       char_data = chr(103)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
                 # elif spots[spot_indx]==spots[4]:
-                #           frame =cv2.putText(frame, "Vi tri 5", (215,170), cv2.FONT_HERSHEY_SIMPLEX,1,
-                #                      (0, 0, 255),2, cv2.LINE_AA, True)
-                #           char_data = chr(101)  # 97 is ASCII code of 'e'
-                #           ser.write(char_data.encode()) 
+                #       frame =cv2.putText(frame, "Vi tri 4", (215,170), cv2.FONT_HERSHEY_SIMPLEX,1,
+                #                  (0, 0, 255),2, cv2.LINE_AA, True)
+                #       char_data = chr(100)  # 97 is ASCII code of 'e'
+                #       ser.write(char_data.encode())
+                #       time.sleep(0.2)
+
+                #       char_data = chr(103)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
                 # elif spots[spot_indx]==spots[5]:
-                #           frame =cv2.putText(frame, "Vi tri 6", (433,171), cv2.FONT_HERSHEY_SIMPLEX,1,
-                #                      (0, 0, 255),2, cv2.LINE_AA, True)
-                #           char_data = chr(102)  # 97 is ASCII code of 'f'
-                #           ser.write(char_data.encode()) 
+                #       frame =cv2.putText(frame, "Vi tri 6", (433,171), cv2.FONT_HERSHEY_SIMPLEX,1,
+                #                  (0, 0, 255),2, cv2.LINE_AA, True)
+                #       char_data = chr(102)  # 97 is ASCII code of 'f'
+                #       ser.write(char_data.encode())
+                #       time.sleep(0.2)
+                #       char_data = chr(103)# is ASCII code of 'a'
+                #       ser.write(char_data.encode())
         cv2.rectangle(frame,(50,490),(400,400),(0,0,0),-1)
         cv2.putText(frame,'slots:{}/{}'.format(str(sum(spots_status)),str(len(spots_status))),(60,450),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2)
         #cv2.imshow('frame',frame)
@@ -166,7 +184,7 @@ def video_feed():
 # Define a Flask route to render the web page that displays the video
 @app.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('index1.html')
 
 if __name__ == '__main__':
      # Start the video stream in a separate thread
@@ -175,7 +193,7 @@ if __name__ == '__main__':
     t.start()
 
     # Run the Flask app in the main thread
-    app.run(debug=True, host='192.168.0.130',port = 5000)
+    app.run(debug=True, host='0.0.0.0',port = 80)
     
 #ser.close()
 cap.release()
